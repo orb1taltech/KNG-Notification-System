@@ -1,0 +1,128 @@
+/* Notification System Styles */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  overflow: hidden;
+}
+
+#notification-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 9999;
+  width: 350px;
+}
+
+.notification {
+  background: rgba(0, 0, 0, 0.9);
+  border-radius: 8px;
+  margin-bottom: 10px;
+  padding: 15px 20px;
+  color: white;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  border-left: 4px solid #3498db;
+  transform: translateX(400px);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.notification.show {
+  transform: translateX(0);
+}
+
+.notification.hide {
+  transform: translateX(400px);
+  opacity: 0;
+}
+
+.notification-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.notification-icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.notification-title {
+  font-size: 16px;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+.notification-message {
+  font-size: 14px;
+  color: #cccccc;
+  line-height: 1.4;
+}
+
+.notification-progress {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.3);
+  transition: width linear;
+}
+
+/* Notification Types */
+.notification.success {
+  border-left-color: #27ae60;
+}
+
+.notification.success .notification-icon {
+  background: #27ae60;
+  color: white;
+}
+
+.notification.error {
+  border-left-color: #e74c3c;
+}
+
+.notification.error .notification-icon {
+  background: #e74c3c;
+  color: white;
+}
+
+.notification.warning {
+  border-left-color: #f39c12;
+}
+
+.notification.warning .notification-icon {
+  background: #f39c12;
+  color: white;
+}
+
+.notification.info {
+  border-left-color: #3498db;
+}
+
+.notification.info .notification-icon {
+  background: #3498db;
+  color: white;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  #notification-container {
+    width: calc(100% - 40px);
+    left: 20px;
+    right: 20px;
+  }
+}
